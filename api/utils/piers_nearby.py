@@ -2,7 +2,7 @@ from math import radians, cos, sin, asin, sqrt
 
 from src.db import session_maker
 from src.pier import Pier
-from bikes_nearby import haversine
+from utils.bikes_nearby import haversine
 
 
 def get_piers_nearby(lat, lng, radius):
