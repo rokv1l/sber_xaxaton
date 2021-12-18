@@ -59,12 +59,14 @@ def make_routes_with_water_transport(A, B, _vehicle):
 
 
 def get_route_to_nearest_pier(point, piers):
+    print(point, piers)
     routes = [[get_route([point, pier]), pier] for pier in piers]
     routes = sorted(routes, key= lambda i: i['dist'])
     return routes[0]
 
 
 def get_route_from_nearest_pier(point, piers):
+    print(point, piers)
     routes = [[get_route([pier, point]), pier] for pier in piers]
     routes = sorted(routes, key= lambda i: i['dist'])
     return routes[0]
