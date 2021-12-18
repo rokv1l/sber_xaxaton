@@ -35,7 +35,11 @@ def make_routes_with_water_transport(A, B, _vehicle):
     river_route = get_river_route(A_pier, B_pier)
 
     route = {
-            'waypoints': [route_to_A_pier['waypoints'], river_route, route_from_B_pier['waypoints']],
+            'waypoints': [
+                change_lat_lng(route_to_A_pier['waypoints']),
+                change_lat_lng(river_route),
+                change_lat_lng(route_from_B_pier['waypoints'])
+            ],
             'dist': route_to_A_pier['dist'] + len(river_route) * 100 + route_from_B_pier['dist'],
             'time': route_to_A_pier['time'] + len(river_route) * 100 / 3 * 1000 + route_from_B_pier['time'],
             'points': [
@@ -46,11 +50,11 @@ def make_routes_with_water_transport(A, B, _vehicle):
 
     routes = [route]
     if _vehicle == 'foot':
-        multi_route = enrich_foot_route(deepcopy(route_to_A_pier))
+        multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_to_A_pier)))
         if multi_route:
             routes.append(multi_route)
     if _vehicle == 'foot':
-        multi_route = enrich_foot_route(deepcopy(route_from_B_pier))
+        multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_from_B_pier)))
         if multi_route:
             routes.append(multi_route)
 
