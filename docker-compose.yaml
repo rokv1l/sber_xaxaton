@@ -1,0 +1,30 @@
+version: '3'
+
+volumes:
+  sber_xaxaton:
+
+services:
+  sber_xaxaton_db:
+    image: postgres
+    restart: unless-stopped
+    container_name: ${POSTGRES_HOST}
+    env_file:
+      - .env
+    ports: 
+      - "127.0.0.1:5432:5432"
+    tty: True
+    volumes:
+      - sber_xaxaton:/var/lib/postgresql/data
+    
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    image: api
+    container_name: api
+    env_file:
+      - .env
+    ports:
+      - "0.0.0.0:5000:5000"
+    restart: always
+    tty: True
