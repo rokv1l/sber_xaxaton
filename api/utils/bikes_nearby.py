@@ -24,7 +24,7 @@ def get_bike_bases_nearby(lat, lng, radius):
         result = []
         for base in bike_bases:
             length = haversine(lat, lng, base.lat, base.lng) * 1000
-            if length < radius:
+            if length < radius and base.is_open:
                 result.append({
                     'address': base.address,
                     'lat': base.lat,

@@ -8,3 +8,5 @@ db_password = os.getenv('POSTGRES_PASSWORD')
 db_name = os.getenv('POSTGRES_DB')
 
 gh_url = os.getenv('GRAPHHOPPER_URL')
+
+lenth_from_pier_limit = 30
