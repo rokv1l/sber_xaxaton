@@ -46,7 +46,15 @@ def make_routes_with_water_transport(A, B, _vehicle):
             "color": FOOT_COLOR,
         },
         {
+            "waypoint": river_route[0] + route_to_A_pier["waypoints"][-1],
+            "color": SHIP_COLOR,
+        },
+        {
             "waypoint": river_route,
+            "color": SHIP_COLOR,
+        },
+        {
+            "waypoint": river_route[-1] + route_from_B_pier["waypoints"][0],
             "color": SHIP_COLOR,
         },
         {
