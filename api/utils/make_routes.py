@@ -102,7 +102,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
             ]
         }
         dist_bike = route["dist"]
-        if dist_bike * 1.2 < routes[0]["dist"]:
+        if routes[0]["dist"] * 1.2 > dist_bike:
             routes.append(route)
 
     return routes
