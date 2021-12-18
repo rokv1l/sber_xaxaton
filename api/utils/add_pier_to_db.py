@@ -13,8 +13,8 @@ def add_pier_base_to_db():
         with session_maker() as session:
             pier = Pier(
                 name=data['name'],
-                lat=data['coords'].split(',')[0],
-                lng=data['coords'].split(',')[1],
+                lat=data['coords'][0],
+                lng=data['coords'][1],
             )
             session.add(pier)
             session.commit()
