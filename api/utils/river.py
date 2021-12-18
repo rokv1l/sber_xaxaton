@@ -18,8 +18,8 @@ def get_river_route(pier_from, pier_to):
     min_dist_from, min_dist_to = float("inf"), float("inf")
     for i, point in enumerate(river):
         lat, lng = point["coords"]
-        dist_from = haversine(pier_from['lat'], pier_from['lng'], lat, lng)
-        dist_to = haversine(pier_to['lat'], pier_to['lng'], lat, lng)
+        dist_from = haversine(pier_from['lng'], pier_from['lat'], lat, lng)
+        dist_to = haversine(pier_to['lng'], pier_to['lat'], lat, lng)
 
         if dist_from < min_dist_from:
             min_dist_from = dist_from
