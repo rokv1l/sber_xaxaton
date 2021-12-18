@@ -64,7 +64,7 @@ def get_route_to_nearest_pier(point, piers):
     for pier in piers:
         routes.append(
             [
-                get_route([point, [pier.lat, pier.lng]]),
+                get_route([point, [pier['lat'], pier['lng']]]),
                 pier
             ]
         )
@@ -78,7 +78,7 @@ def get_route_from_nearest_pier(point, piers):
     for pier in piers:
         routes.append(
             [
-                get_route([[pier.lat, pier.lng], point]),
+                get_route([[pier['lat'], pier['lng']], point]),
                 pier
             ]
         )
