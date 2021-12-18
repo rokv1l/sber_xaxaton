@@ -10,7 +10,7 @@ from utils.river import get_river_route
 class UserIsTooFarAway(BaseException):
     pass
 
-FOOT_COLOR = '#007bff'
+FOOT_COLOR = '#00ff55'
 SHIP_COLOR = '#000000'
 
 
