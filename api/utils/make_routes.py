@@ -49,14 +49,14 @@ def make_routes_with_water_transport(A, B, _vehicle):
         }
 
     routes = [route]
-    if _vehicle == 'foot':
-        multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_to_A_pier)))
-        if multi_route:
-            routes.append(multi_route)
-    if _vehicle == 'foot':
-        multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_from_B_pier)))
-        if multi_route:
-            routes.append(multi_route)
+    # if _vehicle == 'foot':
+    #     multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_to_A_pier)))
+    #     if multi_route:
+    #         routes.append(multi_route)
+    # if _vehicle == 'foot':
+    #     multi_route = enrich_foot_route(change_lat_lng(deepcopy(route_from_B_pier)))
+    #     if multi_route:
+    #         routes.append(multi_route)
 
     routes.append(route)
     return routes
