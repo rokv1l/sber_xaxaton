@@ -13,9 +13,8 @@ class UserIsTooFarAway(BaseException):
 
 def make_routes_with_water_transport(A, B, _vehicle):
     for i in range(config.lenth_from_pier_limit):
-        lat, lng = A
+        lng, lat  = A
         A_piers_nearby = get_piers_nearby(lat, lng, i*1000)
-        print(A_piers_nearby)
         if A_piers_nearby:
             break
     else: 
@@ -24,7 +23,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
         return []
     
     for i in range(config.lenth_from_pier_limit):
-        lat, lng = B
+        lng, lat = B
         B_piers_nearby = get_piers_nearby(lat, lng, i*1000)
         print(B_piers_nearby)
         if B_piers_nearby:
