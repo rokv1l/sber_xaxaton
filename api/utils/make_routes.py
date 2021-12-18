@@ -15,20 +15,25 @@ def make_routes_with_water_transport(A, B, _vehicle):
     for i in range(config.lenth_from_pier_limit):
         lat, lng = A
         A_piers_nearby = get_piers_nearby(lat, lng, i*1000)
+        print(A_piers_nearby)
         if A_piers_nearby:
             break
     else: 
+        print(1)
         # если начальная точка слишком далеко то маршрут не будет построен
         return []
     
     for i in range(config.lenth_from_pier_limit):
         lat, lng = B
         B_piers_nearby = get_piers_nearby(lat, lng, i*1000)
+        print(B_piers_nearby)
         if B_piers_nearby:
             break
     else:
+        print(1)
         # если конечная точка слишком далеко то маршрут не будет построен
-        return []    
+        return []  
+
     route_to_A_pier, A_pier = get_route_to_nearest_pier(A, A_piers_nearby)
     route_from_B_pier, B_pier = get_route_from_nearest_pier(B, B_piers_nearby)
     river_route = get_river_route(A_pier, B_pier)
