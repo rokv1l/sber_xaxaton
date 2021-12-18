@@ -95,7 +95,10 @@ def make_routes_with_water_transport(A, B, _vehicle):
             ] + multi_route_B["waypoints"],
             'dist': multi_route_A['dist'] + len(river_route) * 100 + multi_route_B['dist'],
             'time': multi_route_A['time'] + len(river_route) * 100 / 3 * 1000 + multi_route_B['time'],
-            'points': multi_route_A.get("points", []) + multi_route_B.get("points", [])
+            'points': multi_route_A.get("points", []) + multi_route_B.get("points", []) + [
+                {'lat': A_pier['lng'], 'lng': A_pier['lat'], 'type': 'pier'},
+                {'lat': B_pier['lng'], 'lng': B_pier['lat'], 'type': 'pier'}
+            ]
         }
         routes.append(route)
 
