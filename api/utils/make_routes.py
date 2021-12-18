@@ -12,6 +12,7 @@ class UserIsTooFarAway(BaseException):
 
 FOOT_COLOR = '#00ff55'
 SHIP_COLOR = '#000000'
+BIKE_COLOR = '#007bff'
 
 
 def make_routes_with_water_transport(A, B, _vehicle):
@@ -43,7 +44,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
     route = {
         'waypoints': [{
             "waypoint": route_to_A_pier["waypoints"],
-            "color": FOOT_COLOR,
+            "color": FOOT_COLOR if _vehicle != 'foot' else BIKE_COLOR,
         },
         {
             "waypoint": [river_route[0], route_to_A_pier["waypoints"][-1]],
@@ -59,7 +60,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
         },
         {
             "waypoint": route_from_B_pier["waypoints"],
-            "color": FOOT_COLOR,
+            "color": FOOT_COLOR if _vehicle != 'foot' else BIKE_COLOR,
         }],
         'dist': route_to_A_pier['dist'] + len(river_route) * 78 + route_from_B_pier['dist'],
         'time': route_to_A_pier['time'] + len(river_route) * 78 / 3 * 1000 + route_from_B_pier['time'],
