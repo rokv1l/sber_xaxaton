@@ -76,7 +76,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
     if _vehicle == 'foot':
         multi_route_B = enrich_foot_route(deepcopy(route_from_B_pier))
 
-    if  _vehicle == 'foot' and multi_route_A.get("points") and multi_route_B.get("points"):
+    if  _vehicle == 'foot' and multi_route_A and multi_route_B:
         route = {
             'waypoints': multi_route_A["waypoints"] +
             [
@@ -97,7 +97,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
             + multi_route_B["waypoints"],
             'dist': multi_route_A['dist'] + len(river_route) * 100 + multi_route_B['dist'],
             'time': multi_route_A['time'] + len(river_route) * 100 / 3 * 1000 + multi_route_B['time'],
-            'points': multi_route_A["points"] + multi_route_B["points"]
+            'points': multi_route_A.get("points", []) + multi_route_B.get("points", [])
         }
         routes.append(route)
 
