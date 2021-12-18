@@ -13,8 +13,8 @@ def get_piers_nearby(lat, lng, radius):
             length = haversine(lat, lng, pier.lat, pier.lng) * 1000
             if length < radius:
                 result.append({
-                    'lat': pier.lat,
-                    'lng': pier.lng,
+                    'lat': pier.lng,
+                    'lng': pier.lat,
                     'lenth': length
                 })
     return result
