@@ -12,8 +12,9 @@ def add_pier_base_to_db():
     for data in piers_base_data:
         with session_maker() as session:
             pier = Pier(
-                lat=data['pos']['Lat'],
-                lng=data['pos']['Lon'],
+                name=data['name'],
+                lat=data['coords'].split(',')[0],
+                lng=data['coords'].split(',')[1],
             )
             session.add(pier)
             session.commit()
