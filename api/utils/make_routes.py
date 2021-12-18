@@ -78,10 +78,21 @@ def make_routes_with_water_transport(A, B, _vehicle):
 
     if  _vehicle == 'foot' and multi_route_A.get("points", []) and multi_route_B.get("points", []):
         route = {
-            'waypoints': multi_route_A["waypoints"] + [{
-                "waypoint": river_route,
-                "color": SHIP_COLOR,
-            }] + multi_route_B["waypoints"],
+            'waypoints': multi_route_A["waypoints"] + 
+            [   
+                {
+                    "waypoint": [river_route, multi_route_A["waypoints"][-1][-1]],
+                    "color": SHIP_COLOR,
+                },
+                {
+                    "waypoint": river_route,
+                    "color": SHIP_COLOR,
+                },
+                {
+                    "waypoint": [river_route, multi_route_B["waypoints"][0][0]],
+                    "color": SHIP_COLOR,
+                }
+            ] + multi_route_B["waypoints"],
             'dist': multi_route_A['dist'] + len(river_route) * 100 + multi_route_B['dist'],
             'time': multi_route_A['time'] + len(river_route) * 100 / 3 * 1000 + multi_route_B['time'],
             'points': multi_route_A.get("points", []) + multi_route_B.get("points", [])
