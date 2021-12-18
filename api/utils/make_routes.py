@@ -91,8 +91,7 @@ def get_route_from_nearest_pier(point, piers):
 
 
 def change_lat_lng(waypoints):
-    waypoints
-    for waypoint in waypoints:
+    _waypoints = waypoints
+    for waypoint in _waypoints:
         waypoint["lat"], waypoint["lng"] = waypoint["lng"], waypoint["lat"]
-
-    return 
+    return _waypoints
