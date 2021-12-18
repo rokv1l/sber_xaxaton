@@ -7,11 +7,11 @@ class Pier(base):
     __tablename__ = 'piers'
 
     id = Column(Integer, primary_key=True)
-
+    
+    name = Column(Text)
     lat = Column(Float)
     lng = Column(Float)
 
-    is_open = Column(Boolean, default=True)
 
 
 base.metadata.create_all(engine)
