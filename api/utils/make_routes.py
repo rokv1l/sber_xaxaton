@@ -13,7 +13,7 @@ class UserIsTooFarAway(BaseException):
 
 def make_routes_with_water_transport(A, B, _vehicle):
     for i in range(config.lenth_from_pier_limit):
-        lat, lng = A.split(',')
+        lat, lng = A
         A_piers_nearby = get_piers_nearby(lat, lng, i*1000)
         if A_piers_nearby:
             break
@@ -22,7 +22,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
         return []
     
     for i in range(config.lenth_from_pier_limit):
-        lat, lng = B.split(',')
+        lat, lng = B
         B_piers_nearby = get_piers_nearby(lat, lng, i*1000)
         if B_piers_nearby:
             break
@@ -67,17 +67,3 @@ def get_route_from_nearest_pier(point, piers):
     routes = [[get_route([pier, point]), pier] for pier in piers]
     routes = sorted(routes, key= lambda i: i['dist'])
     return routes[0]
-
-
-def get_multi_route(A, B, _vehicle):
-    route = get_route([A, B], _vehicle)
-    route['points'] = []
-                
-    if _vehicle == 'foot':
-        multi_route = enrich_foot_route(deepcopy(route))
-        if multi_route:
-            routes.append(multi_route)
-    
-    route["waypoints"] = [{ "waypoint" : route["waypoints"], "color" : "#62cc00"}]
-    routes.append(route)
-    return routes
