@@ -3,3 +3,4 @@ flask_restful
 sqlalchemy
 flask-cors
 psycopg2
+requests
