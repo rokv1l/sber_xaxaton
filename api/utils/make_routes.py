@@ -46,7 +46,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
             "color": FOOT_COLOR,
         },
         {
-            "waypoint": river_route[0] + route_to_A_pier["waypoints"][-1],
+            "waypoint": [river_route[0], route_to_A_pier["waypoints"][-1]],
             "color": SHIP_COLOR,
         },
         {
@@ -54,7 +54,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
             "color": SHIP_COLOR,
         },
         {
-            "waypoint": river_route[-1] + route_from_B_pier["waypoints"][0],
+            "waypoint": [river_route[-1], route_from_B_pier["waypoints"][0]],
             "color": SHIP_COLOR,
         },
         {
@@ -70,7 +70,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
     }
 
     routes = [route]
-    
+
     if _vehicle == 'foot':
         multi_route_A = enrich_foot_route(deepcopy(route_to_A_pier))
     if _vehicle == 'foot':
