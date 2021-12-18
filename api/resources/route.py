@@ -18,7 +18,7 @@ class Route(Resource):
             args['to'] = list(map(float, args['to'].split(',')))
         except:
             return {'error': 'invalid coordinates'}, 404
-
+            
         routes = []
 
         route = get_route([args['from'], args['to']], args['vehicle'])

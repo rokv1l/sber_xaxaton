@@ -1,8 +1,8 @@
 from collections import defaultdict
 from datetime import datetime
 
-from graphhopper import get_route
-from bikes_nearby import get_bike_bases_nearby
+from utils.graphhopper import get_route
+from utils.bikes_nearby import get_bike_bases_nearby
 
 FOOT_COLOR = '#007bff'
 BIKE_COLOR = '#00ff55'
