@@ -39,8 +39,8 @@ def make_routes_with_water_transport(A, B, _vehicle):
             'dist': route_to_A_pier['dist'] + len(river_route) * 100 + route_from_B_pier['dist'],
             'time': route_to_A_pier['time'] + len(river_route) * 100 / 3 * 1000 + route_from_B_pier['time'],
             'points': [
-                {'lat': A_pier.lat, 'lng': A_pier.lng, 'type': 'pier'},
-                {'lat': B_pier.lat, 'lng': B_pier.lng, 'type': 'pier'}
+                {'lat': A_pier['lat'], 'lng': A_pier['lng'], 'type': 'pier'},
+                {'lat': B_pier['lat'], 'lng': B_pier['lng'], 'type': 'pier'}
             ]
         }
 
