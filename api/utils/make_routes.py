@@ -11,7 +11,7 @@ class UserIsTooFarAway(BaseException):
     pass
 
 FOOT_COLOR = '#A0E720'
-SHIP_COLOR = '#DCDCDC'
+SHIP_COLOR = '#4169E1'
 BIKE_COLOR = '#00ADEE'
 
 
