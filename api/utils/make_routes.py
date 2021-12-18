@@ -10,9 +10,9 @@ from utils.river import get_river_route
 class UserIsTooFarAway(BaseException):
     pass
 
-FOOT_COLOR = '#00ff55'
-SHIP_COLOR = '#000000'
-BIKE_COLOR = '#007bff'
+FOOT_COLOR = '#A0E720'
+SHIP_COLOR = '#FAED00'
+BIKE_COLOR = '#00ADEE'
 
 
 def make_routes_with_water_transport(A, B, _vehicle):
