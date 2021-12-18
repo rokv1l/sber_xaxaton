@@ -34,6 +34,9 @@ def make_routes_with_water_transport(A, B, _vehicle):
     route_from_B_pier, B_pier = get_route_from_nearest_pier(B, B_piers_nearby)
     river_route = get_river_route(A_pier, B_pier)
 
+    print(route_to_A_pier)
+    print(route_from_B_pier)
+    print(river_route)
     route = {
             'waypoints': route_to_A_pier['waypoints'] + river_route + route_from_B_pier['waypoints'],
             'dist': route_to_A_pier['dist'] + len(river_route) * 100 + route_from_B_pier['dist'],
@@ -59,7 +62,6 @@ def make_routes_with_water_transport(A, B, _vehicle):
 
 
 def get_route_to_nearest_pier(point, piers):
-    print(point, piers)
     routes = []
     for pier in piers:
         routes.append(
@@ -73,7 +75,6 @@ def get_route_to_nearest_pier(point, piers):
 
 
 def get_route_from_nearest_pier(point, piers):
-    print(point, piers)
     routes = []
     for pier in piers:
         routes.append(
