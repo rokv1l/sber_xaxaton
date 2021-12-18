@@ -36,15 +36,15 @@ def make_routes_with_water_transport(A, B, _vehicle):
 
     route = {
             'waypoints': [
-                route_to_A_pier['waypoints'],
-                river_route,
-                route_from_B_pier['waypoints']
+                change_lat_lng(route_to_A_pier['waypoints']),
+                change_lat_lng(river_route),
+                change_lat_lng(route_from_B_pier['waypoints'])
             ],
             'dist': route_to_A_pier['dist'] + len(river_route) * 100 + route_from_B_pier['dist'],
             'time': route_to_A_pier['time'] + len(river_route) * 100 / 3 * 1000 + route_from_B_pier['time'],
             'points': [
-                {'lat': A_pier['lat'], 'lng': A_pier['lng'], 'type': 'pier'},
-                {'lat': B_pier['lat'], 'lng': B_pier['lng'], 'type': 'pier'}
+                {'lat': A_pier['lng'], 'lng': A_pier['lat'], 'type': 'pier'},
+                {'lat': B_pier['lng'], 'lng': B_pier['lat'], 'type': 'pier'}
             ]
         }
 
@@ -91,7 +91,9 @@ def get_route_from_nearest_pier(point, piers):
 
 
 def change_lat_lng(waypoints):
-    _waypoints = waypoints
-    for waypoint in _waypoints:
-        waypoint["lat"], waypoint["lng"] = waypoint["lng"], waypoint["lat"]
+    _waypoints = []
+    for waypoint in waypoints:
+        tmp = {}
+        tmp["lat"], tmp["lng"] = waypoint["lng"], waypoint["lat"]
+        _waypoints.append(tmp)
     return _waypoints
