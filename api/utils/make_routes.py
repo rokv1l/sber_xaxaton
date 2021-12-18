@@ -81,7 +81,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
             'waypoints': multi_route_A["waypoints"] + 
             [   
                 {
-                    "waypoint": [river_route, multi_route_A["waypoints"][-1][-1]],
+                    "waypoint": [river_route, multi_route_A["waypoints"][-1]["waypoint"][-1]],
                     "color": SHIP_COLOR,
                 },
                 {
@@ -89,7 +89,7 @@ def make_routes_with_water_transport(A, B, _vehicle):
                     "color": SHIP_COLOR,
                 },
                 {
-                    "waypoint": [river_route, multi_route_B["waypoints"][0][0]],
+                    "waypoint": [river_route, multi_route_B["waypoints"][0]["waypoint"][0]],
                     "color": SHIP_COLOR,
                 }
             ] + multi_route_B["waypoints"],
