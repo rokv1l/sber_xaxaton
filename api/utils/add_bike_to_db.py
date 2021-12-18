@@ -1,5 +1,7 @@
 import json
 
+from loguru import logger
+
 from src.db import session_maker
 from src.bike_base import BikeBase
 
@@ -17,8 +19,5 @@ def add_bike_base_to_db():
             )
             session.add(bike)
             session.commit()
-    print(f'ok, len - {len(bike_base_data)}')
+    logger.info(f'add_bike_base_to_db ok, len - {len(bike_base_data)}')
 
-
-if __name__ == '__main__':
-    add_bike_base_to_db()
