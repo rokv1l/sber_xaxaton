@@ -4,9 +4,8 @@ from datetime import datetime
 from utils.graphhopper import get_route
 from utils.bikes_nearby import get_bike_bases_nearby
 
-FOOT_COLOR = '#00ff55'
-BIKE_COLOR = '#007bff'
-
+FOOT_COLOR = '#A0E720'
+BIKE_COLOR = '#00ADEE'
 
 def enrich_foot_route(route):
     transfers = find_transfers_to_bike(route)
