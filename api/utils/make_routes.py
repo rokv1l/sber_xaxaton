@@ -68,7 +68,8 @@ def get_route_to_nearest_pier(point, piers):
                 pier
             ]
         )
-    routes = sorted(routes, key= lambda i: i['dist'])
+    print(routes[0])
+    routes = sorted(routes, key= lambda i: i[2])
     return routes[0]
 
 
@@ -82,5 +83,6 @@ def get_route_from_nearest_pier(point, piers):
                 pier
             ]
         )
-    routes = sorted(routes, key= lambda i: i['dist'])
+    print(routes[0])
+    routes = sorted(routes, key= lambda i: i[2])
     return routes[0]
