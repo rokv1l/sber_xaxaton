@@ -18,3 +18,7 @@ def add_bike_base_to_db():
             session.add(bike)
             session.commit()
     print(f'ok, len - {len(bike_base_data)}')
+
+
+if __name__ == '__main__':
+    add_bike_base_to_db()
