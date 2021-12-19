@@ -15,7 +15,7 @@ class Route(Resource):
             args['from'] = list(map(float, args['from'].split(',')))
             args['to'] = list(map(float, args['to'].split(',')))
         except:
-            return {'error': 'invalid coordinates'}, 404
+            return {'error': 'invalid coordinates'}, 400
             
         routes = make_routes_with_water_transport(args['from'], args['to'], args['vehicle'])
 

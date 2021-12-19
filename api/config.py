@@ -10,3 +10,7 @@ db_name = os.getenv('POSTGRES_DB')
 gh_url = os.getenv('GRAPHHOPPER_URL')
 
 lenth_from_pier_limit = 30
+
+FOOT_COLOR = '#A0E720'
+SHIP_COLOR = '#4169E1'
+BIKE_COLOR = '#00ADEE'

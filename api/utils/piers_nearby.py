@@ -6,10 +6,9 @@ from utils.bikes_nearby import haversine
 
 
 def get_piers_nearby(lat, lng, radius):
+    result = []
     with session_maker() as session:
-        piers = session.query(Pier).all()
-        result = []
-        for pier in piers:
+        for pier in session.query(Pier).all():
             length = haversine(lat, lng, pier.lat, pier.lng) * 1000
             if length < radius:
                 result.append({

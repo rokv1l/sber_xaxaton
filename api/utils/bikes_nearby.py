@@ -19,10 +19,9 @@ def haversine(lat1, lng1, lat2, lng2):
 
 
 def get_bike_bases_nearby(lat, lng, radius):
+    result = []
     with session_maker() as session:
-        bike_bases = session.query(BikeBase).all()
-        result = []
-        for base in bike_bases:
+        for base in session.query(BikeBase).all():
             length = haversine(lat, lng, base.lat, base.lng) * 1000
             if length < radius and base.is_open:
                 result.append({

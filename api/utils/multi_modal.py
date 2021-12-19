@@ -1,11 +1,10 @@
 from collections import defaultdict
 from datetime import datetime
 
+import config
 from utils.graphhopper import get_route
 from utils.bikes_nearby import get_bike_bases_nearby
 
-FOOT_COLOR = '#A0E720'
-BIKE_COLOR = '#00ADEE'
 
 def enrich_foot_route(route):
     transfers = find_transfers_to_bike(route)
@@ -19,15 +18,15 @@ def enrich_foot_route(route):
         route['waypoints'] = [
             {
                 "waypoint": segment_1["waypoints"],
-                "color": FOOT_COLOR,
+                "color": config.FOOT_COLOR,
             },
             {
                 "waypoint": bike_segment['waypoints'],
-                "color": BIKE_COLOR,
+                "color": config.BIKE_COLOR,
             },
             {
                 "waypoint": segment_2["waypoints"],
-                "color": FOOT_COLOR,
+                "color": config.FOOT_COLOR,
             },
         ]
         route['dist'] = bike_segment['dist'] + segment_1['dist'] + segment_2['dist']
